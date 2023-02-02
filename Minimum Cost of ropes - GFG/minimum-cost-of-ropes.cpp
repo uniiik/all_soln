@@ -17,14 +17,14 @@ class Solution
             {
                 pq.push(arr[i]);
             }
-        long long   ans = 0;
+        long long  int  ans = 0;
         
         long long cost=0;
         while(pq.size()>1)
         {
-            long long    x=pq.top();
+            long long  int   x=pq.top();
             pq.pop();
-            long long  y=pq.top();
+            long long int  y=pq.top();
             pq.pop();
             
             
