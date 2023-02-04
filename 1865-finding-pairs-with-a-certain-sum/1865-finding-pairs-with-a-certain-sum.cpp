@@ -1,7 +1,7 @@
 class FindSumPairs {
 public:
     unordered_map<int,int> umap1,umap2;
-    vector<int> ans;
+    vector<int> ans;//we have another vector ans for the behalf of nums2 so that when we have to update the vector num2 we will update ans instead of nums2
     
     
     
@@ -42,7 +42,7 @@ public:
         int count=0;
         for(auto x:umap1)
         {
-            count+=((x.second)*(umap2[tot-x.first]));
+            count+=((x.second)*(umap2[tot-x.first]));//it means we are multiplying the count of elemnt in map1 with the elemnt we get from no tot(7)- x.first which is a random number and now the number we get from this subtraction is present in map2 then we will add it into count
         }
         
         return count;
