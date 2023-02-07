@@ -1,6 +1,6 @@
 class Solution {
 public:
-    
+ 
     
     int dfs(int x,int y,int k,int p,int &zero_count,int cnt,vector<vector<int>> &grid)
     {
@@ -66,3 +66,16 @@ public:
         
     }
 };
+
+/*
+traverse the matrix and when u get starting grid (means as 1) then assign sx as row index and sy as coulmns index for that posn
+
+and when u get posn as 0 then increase the zero count
+
+now dfs (helper) function.....
+
+   first check if index is out of box then return zero
+        if we reach the ending cell then check count-1 is equal to zero_count or not ,if true then ,return true else return false
+            now check recursively for up,down ,left and right posn
+
+*/
