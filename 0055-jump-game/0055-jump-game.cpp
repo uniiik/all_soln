@@ -21,7 +21,7 @@ reachable is index posn upto which we can jump and reach by the steps taken whil
 
 while traversing the loop we will see if the index posn where we are standing is less or equal to the posn we can reach then we will move forward otherwise we will return false
 
-so if it is reachable then we will take max of reachable and nums[i]+1(because nums[i] is showing number and index posn it is 1 larger)
+so if it is reachable then we will take max of reachable and nums[i]+i(because while standing at i index we can jump upto nums[i] and i is already where we are standing)
 
 
 
