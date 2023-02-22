@@ -21,6 +21,9 @@ public:
         return false;
     }
     
+    
+    
+    
     vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
         vector<int> ans;
         
@@ -29,7 +32,7 @@ public:
         vector<bool> present_cycle(n, false);
         
         for(int i=0; i<n; i++){
-            if(!visited[i]){
+            if(visited[i]==false){
                 dfsrecursive(i, visited, dfsVisited,graph, present_cycle);
             }
         }
