@@ -1,15 +1,9 @@
-// https://leetcode.com/problems/number-of-provinces/
-
 class Solution {
 public:
     
     void dfs(int s, int n, vector<vector<int>>& isConnected, vector<bool>&visited){
         visited[s] = true;
-        // s = 1
         
-        // 0 1 2 3 4  -- index
-        // 1 2 3 4 5  -- city name
-        // 1 1 0 1 0  -- connection
         
         vector<int>adj;
         for(int i=0; i<n; i++ ){
