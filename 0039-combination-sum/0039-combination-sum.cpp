@@ -3,6 +3,10 @@ public:
     
     vector<vector<int>> ans;
     
+    
+   
+    
+    
     void solve(int i,vector<int>& candidates,int target,vector<int>& temp)
     {
         //3 base case
@@ -27,7 +31,7 @@ public:
         temp.push_back(candidates[i]);
         //second case where we are taking back the same element again
           solve(i,candidates,target-candidates[i],temp);
-        temp.pop_back();
+       temp.pop_back();
         
         
     }
@@ -43,3 +47,14 @@ public:
         
     }
 };
+/*
+create a nested vector ans
+now 
+ there would be 3 base cases 
+        1...if target is 0 then simply return
+        2...if target is negative then also simply return 
+        3...if our pointer has completed the array and move out of array then also return
+        now otherwise,
+            if we are not taking the element in our temp then just recursively call next pointer
+
+*/
