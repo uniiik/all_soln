@@ -15,8 +15,8 @@ public:
         for(int i=1;i<col;i++)
             dp[0][i]=grid[0][i]+dp[0][i-1];
         
-        for(int j=1;j<row;j++)
-            dp[j][0]=dp[j-1][0]+grid[j][0];
+        for(int i=1;i<row;i++)
+            dp[i][0]=dp[i-1][0]+grid[i][0];
         //now fill remainig boxes of dp table
         
         for(int i=1;i<row;i++){
