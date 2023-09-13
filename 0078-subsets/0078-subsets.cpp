@@ -1,26 +1,29 @@
 class Solution {
 public:
+    void function(int index,vector<int> arr, vector<vector<int>> &result, vector<int> ans){
+        
+       if (index== arr.size()){
+           result.push_back(ans);
+           return;
+       } 
+        
+        
+        
+        
+        
+        // to not the number
+        function(index+1,arr,result,ans);
+        
+        //to pick the number
+        ans.push_back(arr[index]);
+        function(index+1,arr,result,ans);
+        ans.pop_back();
+    }
     vector<vector<int>> subsets(vector<int>& nums) {
         vector<vector<int>> result;
-        vector<int> subset;
-        backtrackfunction(nums,subset,result,0);
+        vector<int> ans;
+        function(0,nums,result,ans);
         return result;
-    }
-        
-        
-        
-      void  backtrackfunction(vector<int> &nums,vector<int>&subset,  vector<vector<int>> &result,int start)
-        {
-            result.push_back(subset);
-            for(int i=start;i<nums.size();i++)
-            {
-                subset.push_back(nums[i]);
-                backtrackfunction(nums,subset,result,i+1);
-                subset.pop_back();
-            }
-            
-            
-        
         
     }
 };
