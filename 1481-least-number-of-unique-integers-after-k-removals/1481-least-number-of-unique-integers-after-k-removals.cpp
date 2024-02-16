@@ -10,25 +10,20 @@ public:
             frequency.push_back(x.second);
         }
         sort(frequency.begin(),frequency.end());
-       
-        int count=0;
-        
+        int n=frequency.size();
+        int count=0;// this count we will remove from out frequency size to get final result
+        sort(frequency.begin(),frequency.end());
         for(int i=0;i<frequency.size();i++){
             if(k<frequency[i])
-            {frequency[i]-=k;
-                k=0;}
+                break;
             if(k>=frequency[i])
                 {
                 k-=frequency[i];
-                frequency[i]=-1;}
-            
-            
-            
-            if(frequency[i]!=-1)
-                count++;
+                count+=1;}
         }
-      
-        return count;
+        int result=n-count;
+        return result;
+        
         
     }
 };
