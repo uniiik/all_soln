@@ -1,0 +1,67 @@
+Given a Directed Graph with V vertices (Numbered from 0 to V-1) and E edges, check whether it contains any cycle or not.
+
+question link:
+
+https://www.geeksforgeeks.org/problems/detect-cycle-in-a-directed-graph/1
+
+
+code:
+
+********************************************************************************************************************************************************************************************************
+
+class Solution {
+    
+  private:
+    bool dfs(int node,int  visited[],int  pathvisited[],vector<int> adj[]){
+        visited[node]=1;
+        pathvisited[node]=1;
+        
+        //traverse for adjacent nodes
+        for(auto it:adj[node]){
+            //when the node is not visited
+            if(!visited[it]){
+                if(dfs(it,visited,pathvisited,adj)==true)
+                    return true;}
+            
+            //if the node has benn visited
+            //it has be visted again on samepath also tio form a loop
+            else if(pathvisited[it])
+                return true;
+        }
+        
+    pathvisited[node]=0;
+    return false;
+    }
+  
+  
+  
+  
+  public:
+    // Function to detect cycle in a directed graph.
+    bool isCyclic(int V, vector<int> adj[]) {
+        
+        int visited[V]={0};    
+        int pathvisited[V]={0};
+        
+        for(int i=0;i<V;i++){
+            if(!visited[i])
+                if(dfs(i,visited,pathvisited,adj)==true)
+                    return true;
+        }
+        
+        return false;
+        
+        }
+        
+        
+        
+        /*
+        so here we are just traversing the length and checking dfs for each node and we while calculating dfs for each node so 
+        with the help of two arrays visited and pathvisited because when we reach at a particular node which is already visited it might be possble that it donot forms loops because here we are working with directed graph
+        if we were been using undirected graph then we donot requires pathvisted array as it is 100 percent confirmed that while reaching at a node again means it is having loop
+        but same is not true for directed graph
+        so here we will keep a check using pathvisited array for each iteration of path 
+        while traversing for a path we will mark pathvisited at index as 1 and when we will traverse back we will mark as 0
+        so that for next iteration it is empty.
+        */
+};
