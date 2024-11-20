@@ -1,0 +1,33 @@
+class Solution {
+public:
+    int takeCharacters(string s, int k) {
+        int n=s.size();
+        vector<int> count(3,0);
+        for(char ch:s){
+            count[ch - 'a']++;
+            
+        }
+        if(count[0] < k || count[1] < k || count[2] < k){
+            return -1;
+        }
+     
+        int maxlen=0;
+        
+        vector<int> current (3,0);
+        int left=0;
+        
+        for(int right =0; right <n ; ++right){
+            current[s[right]-'a']++;
+            
+            while(current [0] > count[0] - k || current[1] > count[1]-k || current[2] > count[2]-k)
+            {
+                current[s[left]-'a']--;
+                left++;
+            }
+        
+        maxlen=max(maxlen,right-left+1);
+        }
+        return n-maxlen;
+        
+    }
+};
